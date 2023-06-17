@@ -18,8 +18,8 @@ int fibo2(int n, int *ans){
     if(ans[n]!= -1){
         return ans[n];
     }
-    int a = fibo1(n-1);
-    int b = fibo1(n-2);
+    int a = fibo2(n-1,ans);
+    int b = fibo2(n-2,ans);
     ans[n]= a+b;
     return ans[n];
 }
