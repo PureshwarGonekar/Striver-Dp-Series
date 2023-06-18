@@ -28,7 +28,7 @@ int maximumNonAdjacentSum2(vector<int> &nums){
     return helper2(nums,nums.size()-1,dp);
 }
 
-//Tabular Method
+//Tabular Method T.C. = O(n) S.C. => O(n)
 int maximumNonAdjacentSum(vector<int> &nums){
     vector<int> dp(nums);
     dp[0]= nums[0];
@@ -41,7 +41,7 @@ int maximumNonAdjacentSum(vector<int> &nums){
     return dp[nums.size()-1];
 }
 
-//Space Optimization
+//Space Optimization T.C. = O(n) S.C. => O(1)
 int maximumNonAdjacentSum(vector<int> &nums){
     if(nums.size()==1) return nums[0];
     int prev2= nums[0];
