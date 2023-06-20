@@ -1,5 +1,13 @@
 //Problem - https://www.codingninjas.com/codestudio/problems/partition-equal-subset-sum_892980
 
+bool f(int ind,vector<int> &arr, int Sum1,int Sum2){
+	if(ind==-1) return Sum1==Sum2;
+	return f(ind-1,arr,Sum1+arr[ind],Sum2) || f(ind-1,arr,Sum1,arr[ind]+Sum2);
+}
+bool canPartition(vector<int> &arr, int n)
+{
+	return f(n-1,arr,0,0);
+}
 
 // LOGIC
 /*
