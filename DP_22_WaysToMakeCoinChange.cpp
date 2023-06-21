@@ -89,7 +89,7 @@ long countWaysToMakeChange(int *D, int n, int value)
     return prev[value];
 }
 
-// More Space Optimization //------------------- Wrong 
+// More Space Optimization 
 long countWaysToMakeChange(int *D, int n, int value)
 {
     vector<long> prev(value+1);
@@ -98,7 +98,7 @@ long countWaysToMakeChange(int *D, int n, int value)
     }
 
     for(int ind=1 ; ind<n; ind++){
-        for(int T=value;T>=0 ; T++){
+        for(int T=value;T>=0 ; T--){
 
             long notTake = prev[T];
             long Take=0;
