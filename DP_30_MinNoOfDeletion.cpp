@@ -21,7 +21,7 @@ int lcs(string s, string t) // Longest Common Subsequence
 	return dp[m][n];
 }
   
-int canYouMake(string &str, string &ptr)
+int canYouMake(string &str, string &ptr)// T.C. O(m x n) S.C. O(m x n)
 {
     /* n x m
     Insertions = n- len(lcs)
