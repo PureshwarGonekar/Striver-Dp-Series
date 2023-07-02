@@ -12,6 +12,8 @@
 
 */
 
+// Preorder ==> root left right
+
 void preorder(TreeNode<int> *root){
     if(root == NULL)
         return;

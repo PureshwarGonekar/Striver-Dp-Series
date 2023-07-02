@@ -12,12 +12,12 @@
 
 */
 
-// Postorder ==> left right root
+// Inorder ==>  left root right
 
-void postorder(TreeNode<int> *root){
+void inorder(TreeNode<int> *root){
     if(root == NULL)
         return;
-    postorder(root->left);
-    postorder(root->right);
+    inorder(root->left);
     cout<<root->data<<endl;
+    inorder(root->right);
 }
