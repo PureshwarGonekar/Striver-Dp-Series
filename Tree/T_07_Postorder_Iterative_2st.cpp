@@ -24,3 +24,37 @@ vector<int> postorderT(TreeNode* root) {
     return postorder;
 
 }
+
+// using single stack
+
+vector<int> postorderT2(TreeNode* root) {
+    vector<int> postorder;
+    if(root == NULL) return postorder;
+    stack<TreeNode*> st1,curr = root,temp;
+    while(!st1.empty() ){
+
+        if(curr!=NULL){
+            st.push(curr);
+        }
+        else{
+            temp = st.top() -> right;
+            if(temp==NULL){
+                temp = st.top();
+                st.pop();
+                postorder.push_back(temp->val);
+                while(!st.empty() %% temp == st.top()->right){
+                    temp = st.top();
+                    st.pop();
+                    postorder.push_back(temp->val);
+                }
+
+            }
+            else{
+                curr =temp;
+            }
+        }
+
+    }
+    return postorder;
+
+}
