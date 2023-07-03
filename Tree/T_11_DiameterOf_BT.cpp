@@ -21,17 +21,18 @@ int diameter(BinaryTreeNode<int> *root){
 
 // 2nd Approch T.C = O(N)
 
-int findMaxPath(BinaryTreeNode<int> *root, int &maxi){
-    if(root== NULL) return 0
+int findMaxPath(TreeNode *root, int & maxi){
+    if(root== NULL) return 0;
 
-    int lh = findHeight(root->left);
-    int rh = findHeight(root->right);
+    int lh = findMaxPath(root->left,maxi);
+    int rh = findMaxPath(root->right,maxi);
 
     maxi= max(maxi, (lh+rh));
 
     return 1 + max(lh,rh);
 }
-int diameter(BinaryTreeNode<int> *root){
+int diameterOfBinaryTree(TreeNode* root) {
     int maxi =0;
-    return findMaxPath(root,maxi);
+    findMaxPath(root,maxi);  
+    return maxi;
 }
