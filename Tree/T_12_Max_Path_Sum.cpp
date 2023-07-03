@@ -1,17 +1,20 @@
-// Same as Diameter ques
+// Problem - https://www.codingninjas.com/studio/problems/binary-tree-maximum-path-sum_1280142
 
-int findMaxPath(TreeNode *root, int & maxi){
+// Same as Diameter ques 
+// T.C. O(N)
+int findMaxPathSum(TreeNode<int> *root, int & maxi){
     if(root== NULL) return 0;
 
-    int lh = findMaxPath(root->left,maxi);
-    int rh = findMaxPath(root->right,maxi);
+    int lh = max(0,findMaxPathSum(root->left,maxi)); // taking max for neglecting -ve val
+    int rh = max(0,findMaxPathSum(root->right,maxi));
 
-    maxi= max(maxi, (lh+rh));
+    maxi= max(maxi, (lh+rh+root->val));
 
-    return 1 + max(lh,rh);
+    return root->val + max(lh,rh);
 }
-int diameterOfBinaryTree(TreeNode* root) {
-    int maxi =0;
-    findMaxPath(root,maxi);  
+int maxPathSum(TreeNode<int>* root)
+{
+	int maxi = INT_MIN;
+    findMaxPathSum(root,maxi);  
     return maxi;
 }
