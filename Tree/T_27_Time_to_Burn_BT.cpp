@@ -1,4 +1,13 @@
+// Problem Link - https://www.codingninjas.com/studio/problems/time-to-burn-tree_630563
 
+BinaryTreeNode<int>* findNode(BinaryTreeNode<int>* root, int target){
+    if(root == NULL) return NULL;
+    if(root->data == target) return root;
+    BinaryTreeNode<int>* Left = findNode(root->left, target);
+    if(Left) return Left;
+
+    return findNode(root->right, target);
+}
 
 void markParents(BinaryTreeNode<int>* root, unordered_map<BinaryTreeNode<int>*, BinaryTreeNode<int>*> &parent_track, BinaryTreeNode<int>* target) {
     queue<BinaryTreeNode<int>*> queue;
@@ -18,14 +27,17 @@ void markParents(BinaryTreeNode<int>* root, unordered_map<BinaryTreeNode<int>*, 
 }
 int timeToBurnTree(BinaryTreeNode<int>* root, int start)
 {
-    unordered_map<BinaryTreeNode<int>*, BinaryTreeNode<int>*> parent_track; // node -> parent
+    unordered_map<BinaryTreeNode<int>*, BinaryTreeNode<int>*> parent_track;
+
+    BinaryTreeNode<int>* target = findNode(root,start);
+
     markParents(root, parent_track, target); 
     
     unordered_map<BinaryTreeNode<int>*, bool> visited; 
     queue<BinaryTreeNode<int>*> queue;
     queue.push(target);
     visited[target] = true;
-    int time = 0;
+    int time = -1;
     while(!queue.empty()) { 
         int size = queue.size();
 
