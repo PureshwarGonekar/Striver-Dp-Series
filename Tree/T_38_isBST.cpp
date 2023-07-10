@@ -77,9 +77,13 @@ bool isBST(BinaryTreeNode<int>* root) {
 }
 
 //3rd Approch T.C. = O(N)
-bool isValidBST(TreeNode* root,int minVal=INT_MIN, int maxVal=INT_MAX) {
+bool isValidBST(TreeNode* root,long minVal=LONG_MIN, long maxVal=LONG_MAX) {
     if (root == NULL) return true;
     if (root->val >= maxVal || root->val <= minVal) return false;
     return isValidBST(root->left, minVal, root->val) && isValidBST(root->right, root->val, maxVal);
     
 }
+
+//Contrains
+// The number of nodes in the tree is in the range [1, 104].
+// -2^31 <= Node.val <= 2^31 - 1
