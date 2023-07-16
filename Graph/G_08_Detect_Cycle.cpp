@@ -45,6 +45,35 @@ class Solution {
     }
 };
 
+
+/*-------------------------------Using DFS (GFG)-----------------------------------*/
+bool detectCycle(int src,int parent,vector<int> adj[], int vis[] ){
+    vis[src] =1;
+    
+    for(auto adjnode : adj[src]){
+        
+        if(vis[adjnode] && adjnode!= parent){
+            return true;
+        }
+        if(!vis[adjnode]){
+            if(detectCycle(adjnode,src,adj,vis) == true)
+                return true;
+        }
+    }
+    return false;
+}
+bool isCycle(int V, vector<int> adj[]) {
+    int vis[V]={0};
+    for(int i=0; i< V; i++){
+        if(!vis[i]){
+            if(detectCycle(i,-1,adj,vis)== true){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 //{ Driver Code Starts.
 int main() {
     int tc;
