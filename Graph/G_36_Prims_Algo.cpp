@@ -1,6 +1,8 @@
 //Problem - https://practice.geeksforgeeks.org/problems/minimum-spanning-tree/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=minimum-spanning-tree
 
 
+// Time Complexity: O(E*logE) + O(E*logE) ==> O(E*logE)
+// Space Complexity: O(E) + O(V)
 class Solution
 {
 	public:
