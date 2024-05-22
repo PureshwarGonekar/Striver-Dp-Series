@@ -81,7 +81,7 @@ int uniquePaths(int m, int n) {
 	for(int i=0;i<m;i++){
         vector<int> temp(n,0);
 		for(int j=0;j<n;j++){
-            if(i==0 && j==0) dp[0][0]=1;
+            if(i==0 && j==0) temp[j]=1;
             else{
                 int up=0,left=0;
                 if(i>0) up= prev[j];
